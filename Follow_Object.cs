@@ -11,7 +11,7 @@ public class Follow_Bone : MonoBehaviour
     [SerializeField] private bool keepOrientation = true;
     [SerializeField] private bool keepScale = true;
     
-    private const Vector3 _cubeSize = new Vector3(0.4f, 0.1f, 0.1f);
+    private Vector3 _cubeSize = new Vector3(0.4f, 0.1f, 0.1f);
 
     void OnDrawGizmos()
     {
@@ -34,7 +34,7 @@ public class Follow_Bone : MonoBehaviour
 
         Matrix4x4 rotationMatrix = Matrix4x4.TRS(parentObject.transform.position, parentObject.transform.rotation, parentObject.transform.lossyScale);
         Gizmos.matrix = rotationMatrix;
-        Gizmos.DrawWireCube(Vector3.Zero, _cubeSize);
+        Gizmos.DrawWireCube(Vector3.zero, _cubeSize);
 
         Quaternion worldRotation = parentObject.transform.rotation;
         Vector3 worldScale = parentObject.transform.lossyScale;
@@ -63,3 +63,4 @@ public class Follow_Bone : MonoBehaviour
             transform.localScale = worldScale;
     }
 }
+
